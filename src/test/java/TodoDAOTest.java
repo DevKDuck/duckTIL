@@ -31,4 +31,11 @@ public class TodoDAOTest {
         List<TodoVO> list = todoDAO.selectAll();
         list.forEach(System.out::println);
     }
+
+    @Test
+    public void testSelectOne() throws Exception{
+        Long tno = 1L;
+        TodoVO vo = todoDAO.selectOne(tno);
+        System.out.println(vo);
+    }
 }
