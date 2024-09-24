@@ -14,7 +14,7 @@
 <body>
     <h1>List Page</h1>
 <ul>
-    <c:forEach var = "dto" items = "${list}">
+    <c:forEach items = "${dtoList}" var="dto">
         <li>${dto}</li>
     </c:forEach>
 </ul>

@@ -7,6 +7,9 @@ import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import com.devduck.duckmovie.util.MapperUtil;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Log4j2
 public enum TodoService {
@@ -25,6 +28,18 @@ public enum TodoService {
 //        System.out.println("todoBO: " + todoVO);
         log.info(todoVO);
         dao.insert(todoVO);
+    }
+
+    public List<TodoDTO> listAll() throws Exception {
+        List<TodoVO> voList = dao.selectAll();
+        log.info("voList....");
+        log.info(voList);
+
+        //DAO 로 가져온 VO 목록들을 모두 DTO 로 변환해서 반환
+        List<TodoDTO> dtoList = voList.stream()
+                .map(vo -> modelMapper.map(vo, TodoDTO.class))
+                .collect(Collectors.toList());
+        return dtoList;
     }
 }
 
