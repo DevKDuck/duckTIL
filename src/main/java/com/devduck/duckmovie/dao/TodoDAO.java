@@ -91,4 +91,27 @@ public class TodoDAO {
                 .build();
         return vo;
     }
+
+    public void deleteOne(Long tno) throws Exception{
+        String sql = "delete from tbl_todo where tno = ?";
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setLong(1, tno);
+        preparedStatement.executeUpdate();
+
+    }
+
+    public void updateOne(TodoVO totoVO) throws Exception{
+        String sql = "update tbl_todo set title=?, dueDate=?, finished=? where tno = ?";
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString(1, totoVO.getTitle());
+        preparedStatement.setDate(2, Date.valueOf(totoVO.getDueDate()));
+        preparedStatement.setBoolean(3, totoVO.isFinished());
+        preparedStatement.setLong(4, totoVO.getTno());
+        preparedStatement.executeUpdate();
+
+    }
 }
