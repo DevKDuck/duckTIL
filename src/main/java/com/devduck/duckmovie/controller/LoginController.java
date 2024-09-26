@@ -1,6 +1,8 @@
 package com.devduck.duckmovie.controller;
 
 
+import com.devduck.duckmovie.dto.MemberDTO;
+import com.devduck.duckmovie.service.MemberService;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.ServletException;
@@ -27,12 +29,18 @@ public class LoginController extends HttpServlet {
         String mid = request.getParameter("mid");
         String mpw = request.getParameter("mpw");
 
-        String str = mid+mpw;
+        try{
+            MemberDTO memberDTO = MemberService.INSTANCE.login(mid,mpw);
+            HttpSession session = request.getSession();
+            session.setAttribute( "loginInfo", memberDTO);
+            response.sendRedirect("/todo/list");
 
-        HttpSession session = request.getSession();
+        }
+        catch (Exception e){
+            response.sendRedirect("/login?result=error");
+        }
 
-        session.setAttribute( "loginInfo", str);
-        response.sendRedirect("/todo/list");
+
 
     }
 }
