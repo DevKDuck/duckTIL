@@ -42,7 +42,7 @@ public class LoginCheckFilter implements Filter {
         }
 
         //쿠키 존재시
-        log.info("cookie는 존재 합니다.")
+        log.info("cookie는 존재 합니다.");
 
         String uuid = cookie.getValue();
 
@@ -51,7 +51,7 @@ public class LoginCheckFilter implements Filter {
 
             log.info("쿠키의 값으로 조죄한 사용자 정보: " + memberDTO);
             if(memberDTO == null){
-                throw new Exception("Cookie value is not valid")
+                throw new Exception("Cookie value is not valid");
             }
 
             //회원 정보를 세션에 추가

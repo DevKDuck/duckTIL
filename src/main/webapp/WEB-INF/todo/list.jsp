@@ -14,6 +14,7 @@
 <body>
     <h1>List Page</h1>
 <ul>
+    <h2>${appName}</h2>
     <h2> ${loginInfo}</h2>
     <h3> ${loginInfo.mname}</h3>
     <c:forEach items = "${dtoList}" var="dto">
