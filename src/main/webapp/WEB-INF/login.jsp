@@ -17,8 +17,9 @@
 </c:if>
 
 <form action= "/login" method="post">
-    <input text ="text" name = "mid">
-    <input text ="text" name = "mpw">
+    <input type ="text" name = "mid">
+    <input type ="text" name = "mpw">
+    <input type ="checkbox" name = "auto">
     <button type="submit">login</button>
 </form>
 
