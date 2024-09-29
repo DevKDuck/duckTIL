@@ -30,6 +30,7 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-core',version:'5.3.19'
     implementation group: 'org.springframework', name: 'spring-context',version:'5.3.19'
     implementation group: 'org.springframework', name: 'spring-test',version:'5.3.19'
+    implementation group: 'org.springframework', name: 'spring-webmvc',version:'5.3.19'
 
     implementation group: 'jstl', name: 'jstl', version: '1.2'
 
@@ -51,6 +52,7 @@ dependencies {
 
     testCompileOnly group: 'org.projectlombok', name: 'lombok', version : '1.18.24'
     testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version : '1.18.24'
+
 
 }
 
