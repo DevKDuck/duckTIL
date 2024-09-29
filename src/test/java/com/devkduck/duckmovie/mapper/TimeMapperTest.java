@@ -13,10 +13,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/root-context.xml")
 public class TimeMapperTest {
     @Autowired(required = false)
-    private TimeMapper timeMapper;
+    private TimeMapper timeMapper2;
 
     @Test
     public void testGetTime() {
-        log.info(timeMapper.getTime());
+        log.info(timeMapper2.getTime());
     }
 }
