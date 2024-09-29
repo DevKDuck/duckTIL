@@ -31,6 +31,11 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-context',version:'5.3.19'
     implementation group: 'org.springframework', name: 'spring-test',version:'5.3.19'
     implementation group: 'org.springframework', name: 'spring-webmvc',version:'5.3.19'
+    implementation group: 'org.springframework', name: 'spring-jdbc',version:'5.3.19'
+    implementation group: 'org.springframework', name: 'spring-tx',version:'5.3.19'
+
+    implementation 'org.mybatis:mybatis:3.5.9'
+    implementation 'org.mybatis:mybatis-spring:2.0.7'
 
     implementation group: 'jstl', name: 'jstl', version: '1.2'
 
