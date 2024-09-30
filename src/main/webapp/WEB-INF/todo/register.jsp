@@ -13,8 +13,16 @@
 <body>
   <form action="/todo/register" method="post">
       <div>
-          <input type = "text" name="title" placeholder="INSERT TITLE">
-          <input type = "date" name="dueDate">
+          Title:<input type="text" name="title">
+      </div>
+      <div>
+          DueDate:<input type="date" name="dueDate" value="2024-09-30">
+      </div>
+      <div>
+          Writer:<input type="text" name="writer">
+      </div>
+      <div>
+          Finished:<input type="checkbox" name="finished">
       </div>
       <button type="reset"> 리셋</button>
       <button type="submit"> 등록 </button>

@@ -1,12 +1,10 @@
 package com.devduck.duckmovie.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@ToString
 @Builder
 @Data
 @NoArgsConstructor
@@ -16,4 +14,5 @@ public class TodoDTO {
     private String title;
     private LocalDate dueDate;
     private boolean finished;
+    private String writer;
 }
