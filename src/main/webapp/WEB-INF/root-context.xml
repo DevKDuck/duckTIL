@@ -12,6 +12,7 @@
 
 <!-- context:component-scan을 사용하는 부분 -->
     <context:component-scan base-package="com.devduck.duckmovie.sample"/>
+    <context:component-scan base-package="com.devduck.duckmovie.config"/>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
