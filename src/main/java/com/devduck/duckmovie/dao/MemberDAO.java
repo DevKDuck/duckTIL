@@ -41,7 +41,7 @@ public class MemberDAO {
     }
 
     public MemberVO selectUUID (String uuid) throws Exception{
-        String sql = "select mid, mpw, mnam, uuid from tbl_member where uuid = ?";
+        String sql = "select mid, mpw, mname, uuid from tbl_member where uuid = ?";
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, uuid);
