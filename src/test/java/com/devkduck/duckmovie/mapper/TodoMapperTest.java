@@ -39,5 +39,11 @@ public class TodoMapperTest {
         List<TodoVO> todoVOS = todoMapper.selectAll();
         todoVOS.forEach(System.out::println);
     }
+
+    @Test
+    public void testSelectById(){
+        TodoVO todoVO = todoMapper.selectById(3L);
+        log.info(todoVO);
+    }
 }
 

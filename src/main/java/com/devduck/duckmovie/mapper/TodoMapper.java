@@ -8,4 +8,5 @@ public interface TodoMapper {
     String getTime();
     void insert(TodoVO todoVO);
     List<TodoVO> selectAll();
+    TodoVO selectById(Long tno);
 }

@@ -14,4 +14,8 @@
     <select id="selectAll" resultType="com.devduck.duckmovie.domain.TodoVO">
         select * from tbl_todo order by tno desc
     </select>
+
+    <select id="selectById" resultType="com.devduck.duckmovie.domain.TodoVO">
+        select * from tbl_todo where tno = #{tno}
+    </select>
 </mapper>
