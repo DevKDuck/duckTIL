@@ -2,7 +2,7 @@ package com.devkduck.duckmovie.service;
 
 import com.devduck.duckmovie.dto.TodoDTO;
 import com.devduck.duckmovie.service.TodoService;
-import com.devduck.duckmovie.service.TodoServiceImp;
+import com.devduck.duckmovie.service.TodoServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +19,7 @@ public class TodoServiceTest {
     @Autowired
     private TodoService todoService;
     @Autowired
-    private TodoServiceImp todoServiceImp;
+    private TodoServiceImpl todoServiceImp;
 
     @Test
     public void testRegister(){

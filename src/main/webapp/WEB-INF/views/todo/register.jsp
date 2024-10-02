@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -89,6 +90,14 @@
                                 </div>
                             </div>
                         </form>
+
+                        <script>
+                            const serverValidResult = {}
+                            <c:forEach items="${errors}" var="error">
+                            serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
+                            </c:forEach>
+                            console.log(serverValidResult)
+                        </script>
 
                     </div>
                 </div>
