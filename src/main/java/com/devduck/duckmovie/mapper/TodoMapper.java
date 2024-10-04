@@ -9,4 +9,5 @@ public interface TodoMapper {
     void insert(TodoVO todoVO);
     List<TodoVO> selectAll();
     TodoVO selectById(Long tno);
+    void delete(Long tno);
 }

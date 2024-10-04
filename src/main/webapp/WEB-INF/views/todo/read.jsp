@@ -74,11 +74,11 @@
                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Title</span>
-                            <input type="text" name="tno" class="form-control" value='<c:out value="${dto.title}"></c:out>' readonly>
+                            <input type="text" name="title" class="form-control" value='<c:out value="${dto.title}"></c:out>' readonly>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">DueDate</span>
-                            <input type="date" name="tno" class="form-control" value='<c:out value="${dto.dueDate}"></c:out>' readonly>
+                            <input type="date" name="dueDate" class="form-control" value='<c:out value="${dto.dueDate}"></c:out>' readonly>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Writer</span>
@@ -102,7 +102,7 @@
                                 self.location = "/todo/modify?tno="+${dto.tno}
                             },false)
 
-                            document.querySelector("btn.btn-secondary").addEventListener("click",function(e){
+                            document.querySelector(".btn-secondary").addEventListener("click",function(e){
                                 self.location="/todo/list";
                             },false)
                         </script>
