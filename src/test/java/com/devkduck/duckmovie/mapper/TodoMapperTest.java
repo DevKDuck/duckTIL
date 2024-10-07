@@ -1,7 +1,11 @@
 package com.devkduck.duckmovie.mapper;
 
 import com.devduck.duckmovie.domain.TodoVO;
+import com.devduck.duckmovie.dto.PageRequestDTO;
+import com.devduck.duckmovie.dto.PageResponseDTO;
+import com.devduck.duckmovie.dto.TodoDTO;
 import com.devduck.duckmovie.mapper.TodoMapper;
+import com.devduck.duckmovie.service.TodoServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +22,8 @@ import java.util.List;
 public class TodoMapperTest {
     @Autowired(required = false)
     private TodoMapper todoMapper;
+    @Autowired(required = false)
+    private TodoServiceImpl todoServiceImpl;
 
     @Test
     public void testGetTime(){
@@ -44,6 +50,26 @@ public class TodoMapperTest {
     public void testSelectById(){
         TodoVO todoVO = todoMapper.selectById(3L);
         log.info(todoVO);
+    }
+
+    @Test
+    public void testSelectList(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .build();
+        List<TodoVO> voList = todoMapper.selectList(pageRequestDTO);
+        voList.forEach(vo -> log.info(vo));
+    }
+    @Test
+    public void testPaging(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .build();
+        PageResponseDTO<TodoDTO> responseDTO = todoServiceImpl.getList(pageRequestDTO);
+        log.info(responseDTO);
+        responseDTO.getDtoList().stream().forEach(todoDTO -> log.info(todoDTO));
     }
 }
 

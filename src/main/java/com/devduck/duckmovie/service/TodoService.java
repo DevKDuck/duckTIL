@@ -2,6 +2,8 @@ package com.devduck.duckmovie.service;
 
 import com.devduck.duckmovie.dao.TodoDAO;
 import com.devduck.duckmovie.domain.TodoVO;
+import com.devduck.duckmovie.dto.PageRequestDTO;
+import com.devduck.duckmovie.dto.PageResponseDTO;
 import com.devduck.duckmovie.dto.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -14,7 +16,8 @@ import java.util.stream.Collectors;
 
 public interface TodoService {
     void register(TodoDTO todoDTO);
-    List<TodoDTO> findAll();
+//    List<TodoDTO> findAll();
+    PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
     TodoDTO getById(Long id);
     void remove(Long tno);
     void modify(TodoDTO todoDTO);

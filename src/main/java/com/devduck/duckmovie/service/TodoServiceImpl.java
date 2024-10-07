@@ -1,6 +1,8 @@
 package com.devduck.duckmovie.service;
 
 import com.devduck.duckmovie.domain.TodoVO;
+import com.devduck.duckmovie.dto.PageRequestDTO;
+import com.devduck.duckmovie.dto.PageResponseDTO;
 import com.devduck.duckmovie.dto.TodoDTO;
 import com.devduck.duckmovie.mapper.TodoMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,13 +28,30 @@ public class TodoServiceImpl implements TodoService{
         log.info(todoVO);
         todoMapper.insert(todoVO);
     }
+
     @Override
-    public List<TodoDTO> findAll() {
-        List<TodoDTO> dtoList = todoMapper.selectAll().stream()
+    public PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO) {
+        List<TodoVO> voList = todoMapper.selectList(pageRequestDTO);
+        List<TodoDTO> dtoList = voList.stream()
                 .map(vo -> modelMapper.map(vo, TodoDTO.class))
                 .collect(Collectors.toList());
-        return dtoList;
+        int total = todoMapper.getCount(pageRequestDTO);
+
+        PageResponseDTO<TodoDTO> pageResponseDTO = PageResponseDTO.<TodoDTO>withAll()
+                .dtoList(dtoList)
+                .total(total)
+                .pageRequestDTO(pageRequestDTO)
+                .build();
+        return pageResponseDTO;
     }
+
+//    @Override
+//    public List<TodoDTO> findAll() {
+//        List<TodoDTO> dtoList = todoMapper.selectAll().stream()
+//                .map(vo -> modelMapper.map(vo, TodoDTO.class))
+//                .collect(Collectors.toList());
+//        return dtoList;
+//    }
 
     @Override
     public TodoDTO getById(Long id) {

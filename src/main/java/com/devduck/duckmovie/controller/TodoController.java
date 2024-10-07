@@ -1,5 +1,7 @@
 package com.devduck.duckmovie.controller;
 
+import com.devduck.duckmovie.dto.PageRequestDTO;
+import com.devduck.duckmovie.dto.PageResponseDTO;
 import com.devduck.duckmovie.dto.TodoDTO;
 import com.devduck.duckmovie.service.TodoService;
 import lombok.extern.log4j.Log4j2;
@@ -24,10 +26,15 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @RequestMapping("/list")
-    public void list(Model model) {
-        log.info("todo list.....");
-        model.addAttribute("dtoList", todoService.findAll());
+    @GetMapping("/list")
+    public void list(@Valid PageRequestDTO pageRequestDTO, BindingResult bindingResult, Model model){
+
+        log.info(pageRequestDTO);
+
+        if(bindingResult.hasErrors()){
+            pageRequestDTO = PageRequestDTO.builder().build();
+        }
+        model.addAttribute("responseDTO", todoService.getList(pageRequestDTO));
     }
 
     @GetMapping("/register")
