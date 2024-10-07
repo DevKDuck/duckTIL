@@ -54,7 +54,7 @@ public class TodoController {
     @GetMapping({"/read","/modify"})
     public void read(Long tno, Model model){
         TodoDTO todoDTO = todoService.getById(tno);
-        log.info(todoDTO);
+        log.info("여기입니다 여기 :" + todoDTO);
         model.addAttribute("dto", todoDTO);
 
     }
@@ -67,4 +67,15 @@ public class TodoController {
         return "redirect:/todo/list";
     }
 
+    @PostMapping("/modify")
+    public String modify(@Valid TodoDTO todoDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+        if(bindingResult.hasErrors()){
+            log.info("has Errors....");
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/todo/modify";
+        }
+        log.info(todoDTO);
+        todoService.modify(todoDTO);
+        return "redirect:/todo/list";
+    }
 }

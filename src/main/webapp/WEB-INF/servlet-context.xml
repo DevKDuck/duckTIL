@@ -19,9 +19,11 @@
         <property name="formatters">
             <set>
                 <bean class="com.devduck.duckmovie.controller.formatter.LocalDateFormatter"/>
+                <bean class="com.devduck.duckmovie.controller.formatter.CheckboxFormatter"/>
             </set>
         </property>
-
     </bean>
+
+
     <context:component-scan base-package="com.devduck.duckmovie.controller"/>
 </beans>

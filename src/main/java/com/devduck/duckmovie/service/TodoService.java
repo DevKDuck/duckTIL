@@ -17,6 +17,7 @@ public interface TodoService {
     List<TodoDTO> findAll();
     TodoDTO getById(Long id);
     void remove(Long tno);
+    void modify(TodoDTO todoDTO);
 //    INSTANCE;
 //    private TodoDAO dao;
 //    private ModelMapper modelMapper;
