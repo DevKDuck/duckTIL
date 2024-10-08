@@ -16,10 +16,15 @@ import java.util.stream.Collectors;
 
 public interface TodoService {
     void register(TodoDTO todoDTO);
-//    List<TodoDTO> findAll();
+
+    //List<TodoDTO> getAll();
+
     PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
-    TodoDTO getById(Long id);
+
+    TodoDTO getOne(Long tno);
+
     void remove(Long tno);
+
     void modify(TodoDTO todoDTO);
 //    INSTANCE;
 //    private TodoDAO dao;

@@ -9,7 +9,7 @@ public interface TodoMapper {
     String getTime();
     void insert(TodoVO todoVO);
     List<TodoVO> selectAll();
-    TodoVO selectById(Long tno);
+    TodoVO selectOne(Long tno);
     void delete(Long tno);
     void update(TodoVO todoVO);
     List<TodoVO> selectList(PageRequestDTO pageRequestDTO);
